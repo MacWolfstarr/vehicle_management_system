@@ -1,0 +1,36 @@
+body {
+    background-color:  #3E4551 ;
+}
+
+
+
+.add_section{
+
+    margin-top: 20px;
+
+
+    
+}
+
+.add_description{
+    padding: 50px;;
+}
+
+
+.login_Box{
+    background: #00b8d4 ; border-radius: 25px;
+    padding: 20px;
+    width: 500px ;
+    margin-left: 250px;
+ 
+}
+
+
+
+
+.container{
+    background-color:#fff ;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+}

@@ -1,0 +1,32 @@
+.tabPanel{
+
+    margin-top: 50px;
+  
+   
+}
+
+
+
+
+.box{
+
+    color: #fff;
+
+   padding: 50px;
+   
+  
+  
+
+    display: none;
+
+    margin-top: 20px;
+
+}
+
+.sell{ background: #00b8d4 ; border-radius: 25px; }
+
+.rent{ background:#00b8d4 ;  border-radius: 25px; }
+
+.hire{ background: #00b8d4;  border-radius: 25px; }
+
+
