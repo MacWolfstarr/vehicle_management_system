@@ -38,6 +38,7 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
     $price = $_POST['price'];
     $description = $_POST['description'];
     $status = "pending";
+    $add_type ="sell";
 
     $vehicle_brand = $_POST['vehicle_brand'];
     $engine_capacity =$_POST['engine_capacity'];
@@ -53,12 +54,12 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
         $dst1 ="vehicle_images/".$v3.$fnm;      
         move_uploaded_file($_FILES["img_path"]["tmp_name"],$dst);
 
-        $sql = "INSERT INTO `sell` ( `publisher`, `vehicle_model` ,`vehicle_number`,`seller_name`,`phone_number`,`email`,`price`,`description`,`img_path`,`status` ,`vehicle_brand`,`engine_capacity`,`model_year`,`mileage`,`area`)
-        VALUES ( '$publisher','$vehicle_model','$vehicle_number','$seller_name','$phone_number',' $email',' $price','$description','$dst1','$status','$vehicle_brand','$engine_capacity','$model_year','$mileage','$area')";
+        $sql = "INSERT INTO `sell` ( `publisher`, `vehicle_model` ,`vehicle_number`,`seller_name`,`phone_number`,`email`,`price`,`description`,`img_path`,`status` ,`vehicle_brand`,`engine_capacity`,`model_year`,`mileage`,`area`,`add_type`)
+        VALUES ( '$publisher','$vehicle_model','$vehicle_number','$seller_name','$phone_number',' $email',' $price','$description','$dst1','$status','$vehicle_brand','$engine_capacity','$model_year','$mileage','$area','$add_type')";
         
       
         if (mysqli_query($conn, $sql)) { 
-            $msg ="Sell Add is Published";
+            $msg ="Sell Add is Pending for Aproval";
         } else {
            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
             
@@ -80,6 +81,7 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
         $description =$_POST['description'];
         $area = $_POST['area'];
         $status = "pending";
+        $add_type = "rent";
 
         $v1 = rand(1111,9999);
         $v2 = rand(1111,9999);
@@ -90,12 +92,12 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
         move_uploaded_file($_FILES["img_path"]["tmp_name"],$dst);
 
 
-        $sql = "INSERT INTO `rent` ( `publisher`, `vehicle_Brand` ,`vehicle_model`,`vehicle_number`,`owner_name`,`owner_phone_number`,`owner_email`,`price`,`description`,`area` ,`status`,`img_path`)
-        VALUES ( '$publisher','$vehicle_Brand','$vehicle_model','$vehicle_number','$owner_name',' $owner_phone_number',' $owner_email','$price','$description','$area','$status','$dst')";
+        $sql = "INSERT INTO `rent` ( `publisher`, `vehicle_Brand` ,`vehicle_model`,`vehicle_number`,`owner_name`,`owner_phone_number`,`owner_email`,`price`,`description`,`area` ,`status`,`img_path`,`add_type`)
+        VALUES ( '$publisher','$vehicle_Brand','$vehicle_model','$vehicle_number','$owner_name',' $owner_phone_number',' $owner_email','$price','$description','$area','$status','$dst','$add_type')";
         
       
         if (mysqli_query($conn, $sql)) { 
-            $msg ="Rent Add is Published";
+            $msg ="Rent Add is Pending for Aproval";
         } else {
            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
        
@@ -117,6 +119,7 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
           $description =$_POST['description'];
           $status ="pending";
           $area =$_POST['area'];
+          $add_type = "hire";
 
           $v1 = rand(1111,9999);
           $v2 = rand(1111,9999);
@@ -127,12 +130,12 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
           move_uploaded_file($_FILES["img_path"]["tmp_name"],$dst);
   
   
-          $sql = "INSERT INTO `hire` ( `publisher`, `vehicle_Brand` ,`vehicle_model`,`vehicle_number`,`price`,`owner_name`,`owner_phone_number`,`owner_email`,`driver_name`,`driver_phone_number` ,`description`,`status`,`area`,`img_path`)
-          VALUES ( '$publisher','$vehicle_Brand','$vehicle_model','$vehicle_number','$price',' $owner_name',' $owner_phone_number','$owner_email','$driver_name','$driver_phone_number','$description','$status','$area','$dst')";
+          $sql = "INSERT INTO `hire` ( `publisher`, `vehicle_Brand` ,`vehicle_model`,`vehicle_number`,`price`,`owner_name`,`owner_phone_number`,`owner_email`,`driver_name`,`driver_phone_number` ,`description`,`status`,`area`,`img_path`,`add_type`)
+          VALUES ( '$publisher','$vehicle_Brand','$vehicle_model','$vehicle_number','$price',' $owner_name',' $owner_phone_number','$owner_email','$driver_name','$driver_phone_number','$description','$status','$area','$dst','$add_type')";
           
         
           if (mysqli_query($conn, $sql)) { 
-              $msg ="Hire  Add is Published";
+              $msg ="Hire  Add is Pending for Aproval";
           } else {
              echo "Error: " . $sql . "<br>" . mysqli_error($conn);
          
