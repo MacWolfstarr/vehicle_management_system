@@ -40,6 +40,12 @@
       <li class="nav-item">
         <a class="nav-link" href="publishAdd.php">Publish Add</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="">Sent Requests</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="">Received Requests</a>
+      </li>
     </ul>
 
 

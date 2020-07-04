@@ -3,6 +3,8 @@
 
 <?php 
  include ("./inc/config.php");
+
+  
 ?>
 
 <?php
@@ -45,7 +47,7 @@ include  'header.php'
 
 
 <?php
-       // $sql = "SELECT * FROM sell where status='approved'";
+      
         $sql = "SELECT * FROM hire where hire_id=$hire_id ";
 
         $result =$conn ->query($sql);
@@ -74,6 +76,17 @@ include  'header.php'
 </div>
 
 
+<?php
+     $add_id = $row['hire_id'];
+     $publisher_email =$row['publisher'];  
+     $buyer_email   = $_SESSION['user_email'];;
+     $add_type = $row['add_type'];
+
+?>
+
+
+
+
 
 
 <!--Bootstrap Model code START-->
@@ -91,13 +104,44 @@ include  'header.php'
 <form action=""  method="POST" >
       <div class="modal-body">
         
-              <input type="text" class="form-control">
+      <div class="form-group row  ">
+      <label class="col-sm-4 col-form-label">Name</label>
+      <div class="col-sm-8">
+          <input type="text" name ="buyer_name"  class="form-control">
+      </div>
+      </div>
+
+
+      <div class="form-group row  ">
+      <label class="col-sm-4 col-form-label">Contact Num.</label>
+      <div class="col-sm-8">
+          <input type="text" name ="buyer_contact"  class="form-control">
+      </div>
+      </div>
+
+      <div class="form-group row  ">
+      <label class="col-sm-4 col-form-label">hire Date</label>
+      <div class="col-sm-8">
+          <input type="date" name ="date"  class="form-control">
+      </div>
+      </div>
+
+      <div class="form-group row  ">
+      <label class="col-sm-4 col-form-label">Message</label>
+      <div class="col-sm-8">
+      <input type="text" name ="buyer_message" class="form-control">
+      </div>
+      </div>
+
+      
 
 
       </div>
+
+
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button"   name="sell_request_btn" class="btn btn-primary">Send Request</button>
+        <button type="submit"   name="hire_request_btn" class="btn btn-primary">Send Request</button>
       </div>
 
 </form>
@@ -128,6 +172,46 @@ include  'header.php'
 
 ?>
 
+
+
+
+
+
+<?php
+
+if(isset($_POST['hire_request_btn']) ){ 
+
+       
+
+  
+      $buyer_name = $_POST['buyer_name'];
+      $buyer_contact = $_POST['buyer_contact'];
+      $date = $_POST['date'];
+      $buyer_message = $_POST['buyer_message'];
+      $pending = "pending";
+
+
+      $sql = "INSERT INTO `buyer_requests` ( `add_id`, `buyer_name` ,`buyer_contact`,`buyer_email`,`publisher_email`,`date`,`buyer_message`,`add_type`,`status`)
+      VALUES ( '$add_id','$buyer_name','$buyer_contact','$buyer_email','$publisher_email',' $date',' $buyer_message','$add_type','$pending')";
+      
+    
+      if (mysqli_query($conn, $sql)) { 
+          $msg ="Request sent successfully!";
+      } else {
+
+         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+          
+          
+      }
+
+
+      
+  }
+
+  ?>
+
+
+
 </div>
 
 </div>
@@ -142,6 +226,19 @@ include  'header.php'
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <?php mysqli_close($conn); ?>
