@@ -133,7 +133,9 @@ include  'header.php'
 	
     <div class="card-footer">
       <small class="text-muted">
+      <?php if(!empty($_SESSION)){ ?>
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter"> Request </button>
+      <?php } ?>
       </small>
     </div>
 	
@@ -176,7 +178,7 @@ include  'header.php'
       <div class="form-group row  ">
       <label class="col-sm-4 col-form-label">Name</label>
       <div class="col-sm-8">
-          <input type="text" name ="buyer_name"  class="form-control">
+          <input type="text" name ="buyer_name"  class="form-control" required>
       </div>
       </div>
 
@@ -184,21 +186,21 @@ include  'header.php'
       <div class="form-group row  ">
       <label class="col-sm-4 col-form-label">Contact Num.</label>
       <div class="col-sm-8">
-          <input type="text" name ="buyer_contact"  class="form-control">
+          <input type="text" name ="buyer_contact"  class="form-control" required>
       </div>
       </div>
 
       <div class="form-group row  ">
       <label class="col-sm-4 col-form-label">hire Date</label>
       <div class="col-sm-8">
-          <input type="date" name ="date"  class="form-control">
+          <input type="date" name ="date"  class="form-control" required>
       </div>
       </div>
 
       <div class="form-group row  ">
       <label class="col-sm-4 col-form-label">Message</label>
       <div class="col-sm-8">
-      <input type="text" name ="buyer_message" class="form-control">
+      <input type="text" name ="buyer_message" class="form-control" required>
       </div>
       </div>
 
@@ -210,6 +212,7 @@ include  'header.php'
 
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
         <button type="submit"   name="rent_request_btn" class="btn btn-primary">Send Request</button>
       </div>
 
@@ -251,7 +254,7 @@ include  'header.php'
 <?php
 
 
-if (isset($_SESSION['user_email'] )) {
+
 
 
   if(isset($_POST['rent_request_btn']) ){ 
@@ -276,10 +279,6 @@ if (isset($_SESSION['user_email'] )) {
 
     
     }
-
-
-}
-
 
 
 
