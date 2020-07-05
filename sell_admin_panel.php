@@ -53,7 +53,7 @@ include  'admin_panel_header.php'
 
 
 
-<div class="container ">
+<div class="container-fluid ">
 
 
 <table class="table">
@@ -74,7 +74,7 @@ include  'admin_panel_header.php'
     </tr>
   </thead>
 
-  <tbody>
+  <tbody class="text-light">
 
 <?php
        // $sql = "SELECT * FROM sell where status='approved'";

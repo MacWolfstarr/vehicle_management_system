@@ -115,10 +115,10 @@ include  'header.php'
 
   if($_GET['logout'] == 'yes' ){
     
-      echo  '<h5 class="text-info" style="text-align:center;"> You have succesfully logged out from the system</h5>';
+      echo  '<h5 class="text-info" style="margin-left:270px;"> You have succesfully logged out from the system</h5>';
    
   }else if($_GET['logout'] == 'No' ){
-    echo  '<h5 class="text-info" style="text-align:center;"> Please Login!</h5>';
+    echo  '<h5 class="text-info" style="margin-left:430px;"> Please Login!</h5>';
   }
 
 

@@ -63,7 +63,7 @@ include  'header.php'
       <div class="card-body">
        
         
-        <p>RS. <?php echo $row["price"];?>  per KM</p>
+        <p>RS. <?php echo $row["price"];?>  per Day</p>
         <p>Location:  <?php echo $row["area"] ?> </p>
      
       </div>

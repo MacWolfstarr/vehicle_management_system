@@ -1,0 +1,10 @@
+id
+add_id
+buyer_name
+buyer_contact
+buyer_email
+publisher_email
+date
+buyer_message
+add_type
+status
