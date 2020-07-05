@@ -23,6 +23,11 @@
 
 }
 
+.edit{
+    background: #00b8d4 ; border-radius: 25px;  padding: 50px; 
+}
+
+
 .sell{ background: #00b8d4 ; border-radius: 25px; }
 
 .rent{ background:#00b8d4 ;  border-radius: 25px; }

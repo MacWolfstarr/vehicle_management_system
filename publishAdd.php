@@ -55,11 +55,15 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
         $dst1 ="vehicle_images/".$v3.$fnm;      
         move_uploaded_file($_FILES["img_path"]["tmp_name"],$dst);
 
-        $sql = "INSERT INTO `sell` ( `publisher`, `vehicle_model` ,`vehicle_number`,`seller_name`,`phone_number`,`email`,`price`,`description`,`img_path`,`status` ,`vehicle_brand`,`engine_capacity`,`model_year`,`mileage`,`area`,`add_type`)
-        VALUES ( '$publisher','$vehicle_model','$vehicle_number','$seller_name','$phone_number',' $email',' $price','$description','$dst1','$status','$vehicle_brand','$engine_capacity','$model_year','$mileage','$area','$add_type')";
-        
-      
-        if (mysqli_query($conn, $sql)) { 
+        //$sql = "INSERT INTO `sell` ( `publisher`, `vehicle_model` ,`vehicle_number`,`seller_name`,`phone_number`,`email`,`price`,`description`,`img_path`,`status` ,`vehicle_brand`,`engine_capacity`,`model_year`,`mileage`,`area`,`add_type`)
+        //VALUES ( '$publisher','$vehicle_model','$vehicle_number','$seller_name','$phone_number',' $email',' $price','$description','$dst1','$status','$vehicle_brand','$engine_capacity','$model_year','$mileage','$area','$add_type')";
+       
+       
+       $sql = "INSERT INTO `sell` ( `publisher`, `vehicle_model` ,`vehicle_number`,`seller_name`,`phone_number`,`email`,`price`,`description`,`img_path`,`status` ,`vehicle_brand`,`engine_capacity`,`model_year`,`mileage`,`area`,`add_type`)
+      VALUES ( '$publisher','$vehicle_model','$vehicle_number','$seller_name','$phone_number',' $email',' $price','$description','$dst1','$status','$vehicle_brand','$engine_capacity','$model_year','$mileage','$area','$add_type')";
+       
+       
+       if (mysqli_query($conn, $sql)) { 
             $msg ="Sell Add is Pending for Aproval";
         } else {
            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
@@ -222,7 +226,7 @@ include  'header.php'
 <div class="form-group row  ">
       <label class="col-sm-2 col-form-label">Vehicle Brand</label>
       <div class="col-sm-4">
-          <input type="text" name ="vehicle_brand"  class="form-control">
+          <input type="text" name ="vehicle_brand"  class="form-control" Required>
       </div>
     </div>
 
@@ -230,7 +234,7 @@ include  'header.php'
 <div class="form-group row  ">
       <label class="col-sm-2 col-form-label">Vehicle Model</label>
       <div class="col-sm-4">
-          <input type="text" name ="vehicle_model"  class="form-control">
+          <input type="text" name ="vehicle_model"  class="form-control" Required>
       </div>
     </div>
 
@@ -238,7 +242,7 @@ include  'header.php'
     <div class="form-group row  ">
       <label class="col-sm-2 col-form-label">Vehicle Number</label>
       <div class="col-sm-4">
-      <input type="text" name ="vehicle_number" class="form-control">
+      <input type="text" name ="vehicle_number" class="form-control" Required>
       </div>
     </div>
 
@@ -246,28 +250,28 @@ include  'header.php'
     <div class="form-group row  ">
       <label class="col-sm-2 col-form-label">Engine Capacity</label>
       <div class="col-sm-4">
-      <input type="text" name ="engine_capacity" class="form-control">
+      <input type="text" name ="engine_capacity" class="form-control" Required>
       </div>
     </div>
 
     <div class="form-group row  ">
       <label class="col-sm-2 col-form-label">Model Year</label>
       <div class="col-sm-4">
-      <input type="text" name ="model_year" class="form-control">
+      <input type="text" name ="model_year" class="form-control" Required>
       </div>
     </div>
 
     <div class="form-group row  ">
       <label class="col-sm-2 col-form-label">Mileage</label>
       <div class="col-sm-4">
-      <input type="text" name ="mileage" class="form-control">
+      <input type="text" name ="mileage" class="form-control" Required>
       </div>
     </div>
 
     <div class="form-group row  ">
       <label class="col-sm-2 col-form-label">Area</label>
       <div class="col-sm-4">
-      <input type="text" name ="area" class="form-control">
+      <input type="text" name ="area" class="form-control" Required>
       </div>
     </div>
 
@@ -279,28 +283,28 @@ include  'header.php'
     <div class="form-group row  ">
       <label class="col-sm-2 col-form-label">Seller Name</label>
       <div class="col-sm-4">
-      <input type="text" name ="seller_name"  class="form-control">
+      <input type="text" name ="seller_name"  class="form-control" Required>
       </div>
     </div>
 
     <div class="form-group row  ">
       <label class="col-sm-2 col-form-label">Phone Number</label>
       <div class="col-sm-4">
-      <input type="text" name ="phone_number" class="form-control">
+      <input type="text" name ="phone_number" class="form-control" Required>
       </div>
     </div>
 
     <div class="form-group row  ">
       <label class="col-sm-2 col-form-label">Email</label>
       <div class="col-sm-4">
-      <input type="text" name ="email" class="form-control">
+      <input type="text" name ="email" class="form-control" Required>
       </div>
     </div>
 
     <div class="form-group row  ">
       <label class="col-sm-2 col-form-label">Price</label>
       <div class="col-sm-4">
-      <input type="text" name ="price" class="form-control">
+      <input type="text" name ="price" class="form-control" Required>
       </div>
     </div>
 
@@ -309,7 +313,7 @@ include  'header.php'
     <div class="form-group row  ">
       <label class="col-sm-2 col-form-label">Description</label>
       <div class="col-sm-4">
-      <textarea id="form10" class="md-textarea form-control" rows="3"  name ="description"></textarea>
+      <textarea id="form10" class="md-textarea form-control" rows="3"  name ="description" Required></textarea>
       </div>
     </div>
 
@@ -318,7 +322,7 @@ include  'header.php'
     <div class="form-group row  ">
       <label class="col-sm-2 col-form-label">Vehicle Image</label>
       <div class="col-sm-4">
-      <input type="file" name ="img_path" class="form-control">
+      <input type="file" name ="img_path" class="form-control" Required>
       </div>
     </div>
 
@@ -355,7 +359,7 @@ include  'header.php'
 <div class="form-group row  ">
       <label class="col-sm-2 col-form-label">Vehicle Brand</label>
       <div class="col-sm-4">
-          <input type="text" name ="vehicle_Brand"  class="form-control">
+          <input type="text" name ="vehicle_Brand"  class="form-control" Required>
       </div>
     </div>
 
@@ -363,7 +367,7 @@ include  'header.php'
 <div class="form-group row  ">
       <label class="col-sm-2 col-form-label">Vehicle Model</label>
       <div class="col-sm-4">
-          <input type="text" name ="vehicle_model"  class="form-control">
+          <input type="text" name ="vehicle_model"  class="form-control" Required>
       </div>
     </div>
 
@@ -371,7 +375,7 @@ include  'header.php'
     <div class="form-group row  ">
       <label class="col-sm-2 col-form-label">Vehicle Number</label>
       <div class="col-sm-4">
-      <input type="text" name ="vehicle_number" class="form-control">
+      <input type="text" name ="vehicle_number" class="form-control" Required>
       </div>
     </div>
 
@@ -379,35 +383,35 @@ include  'header.php'
     <div class="form-group row  ">
       <label class="col-sm-2 col-form-label">Owner name</label>
       <div class="col-sm-4">
-      <input type="text" name ="owner_name" class="form-control">
+      <input type="text" name ="owner_name" class="form-control" Required>
       </div>
     </div>
 
     <div class="form-group row  ">
       <label class="col-sm-2 col-form-label">Owner phone number</label>
       <div class="col-sm-4">
-      <input type="text" name ="owner_phone_number" class="form-control">
+      <input type="text" name ="owner_phone_number" class="form-control" Required>
       </div>
     </div>
 
     <div class="form-group row  ">
       <label class="col-sm-2 col-form-label">Owner Email</label>
       <div class="col-sm-4">
-      <input type="text" name ="owner_email" class="form-control">
+      <input type="text" name ="owner_email" class="form-control" Required>
       </div>
     </div>
 
     <div class="form-group row  ">
       <label class="col-sm-2 col-form-label">price</label>
       <div class="col-sm-4">
-      <input type="text" name ="price" class="form-control">
+      <input type="text" name ="price" class="form-control" Required>
       </div>
     </div>
 
     <div class="form-group row  ">
       <label class="col-sm-2 col-form-label">Description</label>
       <div class="col-sm-4">
-      <textarea id="form10" class="md-textarea form-control" rows="3"  name ="description"></textarea>
+      <textarea id="form10" class="md-textarea form-control" rows="3"  name ="description" Required></textarea>
       </div>
     </div>
 
@@ -420,7 +424,7 @@ include  'header.php'
     <div class="form-group row  ">
       <label class="col-sm-2 col-form-label">Area</label>
       <div class="col-sm-4">
-      <input type="text" name ="area" class="form-control">
+      <input type="text" name ="area" class="form-control" Required>
       </div>
     </div>
 
@@ -428,14 +432,14 @@ include  'header.php'
     <div class="form-group row  ">
       <label class="col-sm-2 col-form-label">Vehicle Image</label>
       <div class="col-sm-4">
-      <input type="file" name ="img_path" class="form-control">
+      <input type="file" name ="img_path" class="form-control" Required>
       </div>
     </div>
 
 
     <div class="form-group row">
       <div class="col-sm-10">
-        <input type="submit" name="sumbit_rent" value="Publish Add" class="btn btn-primary">
+        <input type="submit" name="sumbit_rent" value="Publish Add" class="btn btn-primary" Required>
       </div>
     </div>
 
@@ -464,7 +468,7 @@ include  'header.php'
 <div class="form-group row  ">
       <label class="col-sm-2 col-form-label">Vehicle Brand</label>
       <div class="col-sm-4">
-          <input type="text" name ="vehicle_Brand"  class="form-control">
+          <input type="text" name ="vehicle_Brand"  class="form-control" Required>
       </div>
     </div>
 
@@ -472,7 +476,7 @@ include  'header.php'
 <div class="form-group row  ">
       <label class="col-sm-2 col-form-label">Vehicle Model</label>
       <div class="col-sm-4">
-          <input type="text" name ="vehicle_model"  class="form-control">
+          <input type="text" name ="vehicle_model"  class="form-control" Required>
       </div>
     </div>
 
@@ -480,7 +484,7 @@ include  'header.php'
     <div class="form-group row  ">
       <label class="col-sm-2 col-form-label">Vehicle Number</label>
       <div class="col-sm-4">
-      <input type="text" name ="vehicle_number" class="form-control">
+      <input type="text" name ="vehicle_number" class="form-control" Required>
       </div>
     </div>
 
@@ -488,28 +492,28 @@ include  'header.php'
     <div class="form-group row  ">
       <label class="col-sm-2 col-form-label">Price </label>
       <div class="col-sm-4">
-      <input type="text" name ="price" class="form-control">
+      <input type="text" name ="price" class="form-control" Required>
       </div>
     </div>
 
     <div class="form-group row  ">
       <label class="col-sm-2 col-form-label">Owner Name</label>
       <div class="col-sm-4">
-      <input type="text" name ="owner_name" class="form-control">
+      <input type="text" name ="owner_name" class="form-control" Required>
       </div>
     </div>
 
     <div class="form-group row  ">
       <label class="col-sm-2 col-form-label">Owner phone Number</label>
       <div class="col-sm-4">
-      <input type="text" name ="owner_phone_number" class="form-control">
+      <input type="text" name ="owner_phone_number" class="form-control" Required>
       </div>
     </div>
 
     <div class="form-group row  ">
       <label class="col-sm-2 col-form-label">Owner email</label>
       <div class="col-sm-4">
-      <input type="text" name ="owner_email" class="form-control">
+      <input type="text" name ="owner_email" class="form-control" Required>
       </div>
     </div>
 
@@ -523,7 +527,7 @@ include  'header.php'
     <div class="form-group row  ">
       <label class="col-sm-2 col-form-label">Driver Name</label>
       <div class="col-sm-4">
-      <input type="text" name ="driver_name" class="form-control">
+      <input type="text" name ="driver_name" class="form-control" Required>
       </div>
     </div>
 
@@ -532,14 +536,14 @@ include  'header.php'
     <div class="form-group row  ">
       <label class="col-sm-2 col-form-label">Driver Phone Number</label>
       <div class="col-sm-4">
-      <input type="text" name ="driver_phone_number" class="form-control">
+      <input type="text" name ="driver_phone_number" class="form-control" Required>
       </div>
     </div>
 
     <div class="form-group row  ">
       <label class="col-sm-2 col-form-label">Area</label>
       <div class="col-sm-4">
-      <input type="text" name ="area" class="form-control">
+      <input type="text" name ="area" class="form-control" Required>
       </div>
     </div>
 
@@ -547,7 +551,7 @@ include  'header.php'
     <div class="form-group row  ">
       <label class="col-sm-2 col-form-label">Discription</label>
       <div class="col-sm-4">
-      <textarea id="form10" class="md-textarea form-control" rows="3"  name ="description"></textarea>
+      <textarea id="form10" class="md-textarea form-control" rows="3"  name ="description" Required></textarea>
       </div>
     </div>
 
@@ -555,13 +559,13 @@ include  'header.php'
     <div class="form-group row  ">
       <label class="col-sm-2 col-form-label">Vehicle Image</label>
       <div class="col-sm-4">
-      <input type="file" name ="img_path" class="form-control">
+      <input type="file" name ="img_path" class="form-control" Required>
       </div>
     </div>
 
     <div class="form-group row">
       <div class="col-sm-10">
-        <input type="submit" name="sumbit_hire" value="Publish Add" class="btn btn-primary">
+        <input type="submit" name="sumbit_hire" value="Publish Add" class="btn btn-primary" >
       </div>
     </div>
 

@@ -186,11 +186,11 @@ include  'header.php'
 <tr class="text-light"> 
       <th scope="row"><?php echo $row['sell_id']?></th>
       <td><?php echo $row['vehicle_brand']?></td>
-      <td><?php echo $row['Vehicle Model']?></td>
+      <td><?php echo $row['vehicle_model']?></td>
       <td><?php echo $row['vehicle_number']?></td>
       <td>
 
-        <a href="edi_sell_add.php?id=<?php echo $row['sell_id'];?>"> <input type="submit" name="sumbit_sell" value="Edit" class="btn btn-primary"></a>
+        <a href="sell_edit.php?id=<?php echo $row['sell_id'];?>"> <input type="submit" name="sumbit_sell" value="Edit" class="btn btn-primary"></a>
       
       </td>
       <td>  <form method="post" action="">
@@ -268,11 +268,11 @@ include  'header.php'
 <tr class="text-light"> 
       <th scope="row"><?php echo $row['rent_id']?></th>
       <td><?php echo $row['vehicle_Brand']?></td>
-      <td><?php echo $row['Vehicle Model']?></td>
+      <td><?php echo $row['vehicle_model']?></td>
       <td><?php echo $row['vehicle_number']?></td>
       <td>
 
-        <a href="edi_sell_add.php?id=<?php echo $row['rent_id'];?>"> <input type="submit" name="sumbit_rent" value="Edit" class="btn btn-primary"></a>
+        <a href="rent_edit.php?id=<?php echo $row['rent_id'];?>"> <input type="submit" name="sumbit_rent" value="Edit" class="btn btn-primary"></a>
       
       </td>
       <td>  <form method="post" action="">
@@ -347,11 +347,11 @@ include  'header.php'
 <tr class="text-light"> 
       <th scope="row"><?php echo $row['hire_id']?></th>
       <td><?php echo $row['vehicle_Brand']?></td>
-      <td><?php echo $row['Vehicle Model']?></td>
+      <td><?php echo $row['vehicle_model']?></td>
       <td><?php echo $row['vehicle_number']?></td>
       <td>
 
-        <a href="edi_sell_add.php?id=<?php echo $row['hire_id'];?>"> <input type="submit" name="sumbit_hire" value="Edit" class="btn btn-primary"></a>
+        <a href="hire_edit.php?id=<?php echo $row['hire_id'];?>"> <input type="submit" name="sumbit_hire" value="Edit" class="btn btn-primary"></a>
       
       </td>
       <td>  <form method="post" action="">
