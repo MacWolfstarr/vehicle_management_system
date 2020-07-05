@@ -14,6 +14,7 @@
 
       }else if($_SESSION['role'] == 'admin'){
           echo "Fobided!";
+          header('Location:sell_admin_panel.php');
       }
 
     
@@ -70,7 +71,7 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
         
     }else if(isset($_POST['sumbit_rent'])){    //rent add starts
 
-        $publisher ="test@gmail.com"; //temporary
+      $publisher =$_SESSION['user_email'];
         $vehicle_Brand = $_POST['vehicle_Brand'];
         $vehicle_model = $_POST['vehicle_model'];
         $vehicle_number = $_POST['vehicle_number'];
@@ -106,7 +107,7 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
 
     }else if(isset($_POST['sumbit_hire'])){ //hire add starts
 
-          $publisher = "test@test.com";
+         $publisher =$_SESSION['user_email'];
           $vehicle_Brand = $_POST['vehicle_Brand'];
           $vehicle_model = $_POST['vehicle_model'];
           $vehicle_number = $_POST['vehicle_number'];

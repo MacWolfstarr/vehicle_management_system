@@ -40,11 +40,17 @@
       <li class="nav-item">
         <a class="nav-link" href="publishAdd.php">Publish Add</a>
       </li>
+
       <li class="nav-item">
-        <a class="nav-link" href="">Sent Requests</a>
+        <a class="nav-link" href="published_Adds_List.php">Manage Adds</a>
+      </li>
+
+     
+      <li class="nav-item">
+        <a class="nav-link" href="sent_requests.php">Sent Requests </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="">Received Requests</a>
+        <a class="nav-link" href="recieved_requests.php">Received Requests</a>
       </li>
     </ul>
 

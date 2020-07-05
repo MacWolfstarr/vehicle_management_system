@@ -81,7 +81,7 @@ include  'header.php'
 <div class="form-group row  ">
       <label class="col-sm-3 col-form-label">First Name</label>
       <div class="col-sm-8">
-          <input type="text" name ="first_name"  class="form-control">
+          <input type="text" name ="first_name"  class="form-control" required>
       </div>
     </div>
 
@@ -89,14 +89,14 @@ include  'header.php'
 <div class="form-group row  ">
       <label class="col-sm-3 col-form-label">Last Name</label>
       <div class="col-sm-8">
-          <input type="text" name ="last_name"  class="form-control">
+          <input type="text" name ="last_name"  class="form-control" required>
       </div>
     </div>
 
     <div class="form-group row  ">
       <label class="col-sm-3 col-form-label"> Email</label>
       <div class="col-sm-8">
-          <input type="text" name ="email"  class="form-control">
+          <input type="text" name ="email"  class="form-control" required>
       </div>
     </div>
 
@@ -104,7 +104,7 @@ include  'header.php'
     <div class="form-group row  ">
       <label class="col-sm-3 col-form-label"> Password</label>
       <div class="col-sm-8">
-          <input type="password" name ="password"  class="form-control">
+          <input type="password" name ="password"  class="form-control" required>
       </div>
     </div>
 

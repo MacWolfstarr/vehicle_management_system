@@ -37,6 +37,9 @@ include  'header.php'
 
 <div class="container">
 
+
+
+
 <div class="add_description">
 
 
@@ -60,17 +63,96 @@ include  'header.php'
   <div class="card border-primary">
     <img class="card-img-top" src="./<?php echo $row["img_path"];?>" alt="Card image cap"style="width:700px; height:400;   margin-left: auto; margin-right: auto; ">
     <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-    </div>
+
+
+
+    <h2 class="card-title " style="font-weight:bold;" ><?php echo $row["vehicle_Brand"]  ." ". $row["vehicle_model"] ." ".$row["vehicle_number"]." ";?></h2>
+      <h2> Price : <?php echo $row["price"] ?> </h2>
+   
+
+      <table class="table table-hover table-dark" style="width:50%; float:left;">
+
+          <tr>
+            <th scope="col">Vehicle Brand: </th>
+            <td><?php echo $row["vehicle_Brand"] ?></td>
+          </tr>
+
+          <tr>
+            <th scope="col">Vehicle Model: </th>
+            <td><?php echo $row["vehicle_model"] ?></td>
+          </tr>
+
+        
+          <tr>
+            <th scope="col">Vehicle Number: </th>
+            <td><?php echo $row["vehicle_number"] ?></td>
+          </tr>
+
+ 
+
+
+     </table>
+
+  
+
+     <table class="table table-hover table-light" style="width:50%">
+
+        <tr>
+          <th scope="col">Publisher Account </th>
+          <td><?php echo $row["publisher"] ?></td>
+        </tr>
+        <tr>
+          <th scope="col">Owner Name: </th>
+          <td><?php echo $row["owner_name"] ?></td>
+        </tr>
+
+        <tr>
+          <th scope="col">Contact Number: </th>
+          <td><?php echo $row["owner_phone_number"] ?></td>
+        </tr>
+        <tr>
+          <th scope="col">Email:  </th>
+          <td><?php echo $row["owner_email"] ?></td>
+        </tr>
+        <tr>
+          <th scope="col">Location :  </th>
+          <td><?php echo $row["area"] ?></td>
+        </tr>
+
+    </table>
+
+
+
+     </div>
+
+
+
+
+   
+	
+	
     <div class="card-footer">
       <small class="text-muted">
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter"> Request </button>
       </small>
-     
     </div>
+	
   </div>
 </div>
+
+
+
+<?php
+     $add_id = $row['rent_id'];
+     $publisher_email =$row['publisher'];  
+     $buyer_email   = $_SESSION['user_email'];;
+     $add_type = $row['add_type'];
+
+?>
+
+
+
+
 
 
 <!--Bootstrap Model code START-->
@@ -79,7 +161,7 @@ include  'header.php'
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">Send Request</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -88,21 +170,58 @@ include  'header.php'
 <form action=""  method="POST" >
       <div class="modal-body">
         
-              <input type="text" class="form-control">
+      <form action=""  method="POST" >
+      <div class="modal-body">
+        
+      <div class="form-group row  ">
+      <label class="col-sm-4 col-form-label">Name</label>
+      <div class="col-sm-8">
+          <input type="text" name ="buyer_name"  class="form-control">
+      </div>
+      </div>
+
+
+      <div class="form-group row  ">
+      <label class="col-sm-4 col-form-label">Contact Num.</label>
+      <div class="col-sm-8">
+          <input type="text" name ="buyer_contact"  class="form-control">
+      </div>
+      </div>
+
+      <div class="form-group row  ">
+      <label class="col-sm-4 col-form-label">hire Date</label>
+      <div class="col-sm-8">
+          <input type="date" name ="date"  class="form-control">
+      </div>
+      </div>
+
+      <div class="form-group row  ">
+      <label class="col-sm-4 col-form-label">Message</label>
+      <div class="col-sm-8">
+      <input type="text" name ="buyer_message" class="form-control">
+      </div>
+      </div>
+
+      
 
 
       </div>
+
+
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button"   name="sell_request_btn" class="btn btn-primary">Send Request</button>
+        <button type="submit"   name="rent_request_btn" class="btn btn-primary">Send Request</button>
       </div>
 
 </form>
 
 
+
+
     </div>
   </div>
 </div>
+
 
 <!---####################################################################################################################################-->
 <!--Bootstrap Model code END-->
@@ -127,7 +246,55 @@ include  'header.php'
 
 ?>
 
+
+
+<?php
+
+
+if (isset($_SESSION['user_email'] )) {
+
+
+  if(isset($_POST['rent_request_btn']) ){ 
+    $buyer_name = $_POST['buyer_name'];
+    $buyer_contact = $_POST['buyer_contact'];
+    $date = $_POST['date'];
+    $buyer_message = $_POST['buyer_message'];
+    $pending = "pending";
+
+    $sql = "INSERT INTO `buyer_requests` ( `add_id`, `buyer_name` ,`buyer_contact`,`buyer_email`,`publisher_email`,`date`,`buyer_message`,`add_type`,`status`)
+    VALUES ( '$add_id','$buyer_name','$buyer_contact','$buyer_email','$publisher_email',' $date',' $buyer_message','$add_type','$pending')";
+    
+    if (mysqli_query($conn, $sql)) { 
+        $msg ="Request sent successfully!";
+    } else {
+
+          echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        
+        
+    }
+
+
+    
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+  ?>
+
+
+
 </div>
+
+
 
 </div>
     
@@ -135,6 +302,13 @@ include  'header.php'
 </div>
 
 </div>
+
+
+
+
+
+
+
     
 
 

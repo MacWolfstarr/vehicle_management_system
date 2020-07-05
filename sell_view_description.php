@@ -103,6 +103,10 @@ include  'header.php'
      <table class="table table-hover table-light" style="width:50%">
 
         <tr>
+          <th scope="col">Publisher Account </th>
+          <td><?php echo $row["publisher"] ?></td>
+        </tr>
+        <tr>
           <th scope="col">Seller Name: </th>
           <td><?php echo $row["seller_name"] ?></td>
         </tr>
@@ -110,10 +114,6 @@ include  'header.php'
         <tr>
           <th scope="col">Contact Number: </th>
           <td><?php echo $row["phone_number"] ?></td>
-        </tr>
-        <tr>
-          <th scope="col">Email:  </th>
-          <td><?php echo $row["email"] ?></td>
         </tr>
         <tr>
           <th scope="col">Email:  </th>
@@ -130,10 +130,7 @@ include  'header.php'
 
 
     </div>
-    <div class="card-footer">
-      <small class="text-muted">
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter"> Request </button></small>
-    </div>
+  
   </div>
 </div>
 
@@ -144,7 +141,7 @@ include  'header.php'
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">Send Request</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>

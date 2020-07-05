@@ -64,8 +64,81 @@ include  'header.php'
   <div class="card border-primary">
     <img class="card-img-top" src="./<?php echo $row["img_path"];?>" alt="Card image cap"style="width:700px; height:400;   margin-left: auto; margin-right: auto; ">
     <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+     
+    <h2 class="card-title " style="font-weight:bold;" ><?php echo $row["vehicle_Brand"]  ." ". $row["vehicle_model"] ." ".$row["vehicle_number"]." ";?></h2>
+      <h2> Price : <?php echo $row["price"] ?> </h2>
+   
+
+      <table class="table table-hover table-dark" style="width:50%; float:left;">
+
+          <tr>
+            <th scope="col">Vehicle Brand: </th>
+            <td><?php echo $row["vehicle_Brand"] ?></td>
+          </tr>
+
+          <tr>
+            <th scope="col">Vehicle Model: </th>
+            <td><?php echo $row["vehicle_model"] ?></td>
+          </tr>
+
+      
+          <tr>
+            <th scope="col">Vehicle Number: </th>
+            <td><?php echo $row["vehicle_number"] ?></td>
+          </tr>
+
+          
+
+          
+         
+
+
+     </table>
+
+
+     <table class="table table-hover table-light" style="width:50%">
+
+        <tr>
+          <th scope="col">Publisher Account </th>
+          <td><?php echo $row["publisher"] ?></td>
+        </tr>
+        <tr>
+          <th scope="col">Owner Name: </th>
+          <td><?php echo $row["owner_name"] ?></td>
+        </tr>
+
+        <tr>
+          <th scope="col">Owner Contact: </th>
+          <td><?php echo $row["owner_phone_number"] ?></td>
+        </tr>
+        <tr>
+          <th scope="col">Email:  </th>
+          <td><?php echo $row["owner_email"] ?></td>
+        </tr>
+        <tr>
+          <th scope="col">Driver Name :  </th>
+          <td><?php echo $row["driver_name"] ?></td>
+        </tr>
+
+        <tr>
+          <th scope="col">Driver Contact :  </th>
+          <td><?php echo $row["driver_phone_number"] ?></td>
+        </tr>
+
+        <tr>
+          <th scope="col">Location :  </th>
+          <td><?php echo $row["area"] ?></td>
+        </tr>
+
+    </table>
+
+    
+
+
+
+
+
+
     </div>
     <div class="card-footer">
       <small class="text-muted">
@@ -95,7 +168,7 @@ include  'header.php'
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">Send Request</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -179,12 +252,11 @@ include  'header.php'
 
 <?php
 
+if (isset($_SESSION['user_email'] )) {
+
 if(isset($_POST['hire_request_btn']) ){ 
 
-       
-
-  
-      $buyer_name = $_POST['buyer_name'];
+   $buyer_name = $_POST['buyer_name'];
       $buyer_contact = $_POST['buyer_contact'];
       $date = $_POST['date'];
       $buyer_message = $_POST['buyer_message'];
@@ -207,6 +279,10 @@ if(isset($_POST['hire_request_btn']) ){
 
       
   }
+
+
+
+}
 
   ?>
 
