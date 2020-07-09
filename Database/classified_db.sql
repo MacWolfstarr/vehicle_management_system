@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 05, 2020 at 03:58 PM
+-- Generation Time: Jul 09, 2020 at 07:04 PM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -47,7 +47,30 @@ CREATE TABLE `buyer_requests` (
 
 INSERT INTO `buyer_requests` (`id`, `add_id`, `buyer_email`, `buyer_name`, `buyer_contact`, `publisher_email`, `date`, `buyer_message`, `add_type`, `status`) VALUES
 (46, 1, 'user2@gmail.com', 'user2', '0714265255', 'user1@gmail.com', ' 2020-07-14', ' message', 'rent', 'approved'),
-(47, 1, 'user2@gmail.com', 'user1', '0718524565', 'user1@gmail.com', ' 2020-07-06', ' description', 'rent', 'approved');
+(47, 1, 'user2@gmail.com', 'user1', '0718524565', 'user1@gmail.com', ' 2020-07-06', ' description', 'rent', 'approved'),
+(48, 1, 'user1@gmail.com', 'geethan chanaka', '071426422', 'user1@gmail.com', ' 2020-07-06', ' msg', 'rent', 'pending');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `feedback`
+--
+
+CREATE TABLE `feedback` (
+  `id` int(11) NOT NULL,
+  `user` varchar(30) NOT NULL,
+  `add_id` int(11) NOT NULL,
+  `add_type` varchar(20) NOT NULL,
+  `description` varchar(100) NOT NULL,
+  `publisher` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `feedback`
+--
+
+INSERT INTO `feedback` (`id`, `user`, `add_id`, `add_type`, `description`, `publisher`) VALUES
+(21, '', 1, 'rent', 'aaaaaaaa', 'user1@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -109,7 +132,9 @@ CREATE TABLE `rent` (
 --
 
 INSERT INTO `rent` (`rent_id`, `publisher`, `vehicle_Brand`, `vehicle_model`, `vehicle_number`, `owner_name`, `owner_phone_number`, `owner_email`, `price`, `description`, `img_path`, `status`, `area`, `add_type`) VALUES
-(1, 'user1@gmail.com', 'SUZUKI', 'alto', 'SP CAU - 1023', 'kamal', ' 0716548525', ' kamal@gmail.com', '2200', 'description', './vehicle_images/39685607unnamed.jpg', 'approved', 'colombo', 'rent');
+(1, 'user1@gmail.com', 'SUZUKI', 'alto', 'SP CAU - 1023', 'kamal', ' 0716548525', ' kamal@gmail.com', '2200', 'description', './vehicle_images/39685607unnamed.jpg', 'approved', 'colombo', 'rent'),
+(2, 'user1@gmail.com', 'aaaa', 'aaa', 'a', 'aa', ' a', ' a', 'a', 'a', './vehicle_images/47929240Bash configuration for Windows CMDexe refugees unsafePerformIO.png', 'approved', 'a', 'rent'),
+(3, 'user2@gmail.com', 'ddddddd', 'ddddddddddd', 'dddddddd', 'dddddddddddddddddddddddd', ' dddddddd', ' ddddddd', 'ddddddd', 'dddddddddd', './vehicle_images/97506438hd-anonymous_123836285_275.jpg', 'approved', 'dddddd', 'rent');
 
 -- --------------------------------------------------------
 
@@ -142,8 +167,7 @@ CREATE TABLE `sell` (
 --
 
 INSERT INTO `sell` (`sell_id`, `publisher`, `vehicle_model`, `vehicle_number`, `seller_name`, `phone_number`, `email`, `price`, `description`, `img_path`, `status`, `vehicle_brand`, `engine_capacity`, `model_year`, `mileage`, `area`, `add_type`) VALUES
-(1, 'user1@gmail.com', '3 series', 'SP CAU - 3747', 'kasun', '071 4268524', ' kasun@gmail.com', '15 550 000', 'Description', 'vehicle_images/370812141.jpg', 'approved', 'BMW', '1995 cc', '2018', 71, 'Matara', 'sell'),
-(2, 'user1@gmail.com', 'Z4 Msport', 'WP ', 'pasan', '0718524562', ' pasan@gmail.com', '20 000 000', 'description', 'vehicle_images/16577909maxresdefault.jpg', 'approved', 'BMW', 'CAH-9999', '2015', 17, 'Matara', 'sell');
+(1, 'user1@gmail.com', '3 series', 'SP CAU - 3747', 'kasun', '071 4268524', ' kasun@gmail.com', '15 550 000', 'Description', 'vehicle_images/370812141.jpg', 'approved', 'BMW', '1995 cc', '2018', 71, 'Matara', 'sell');
 
 -- --------------------------------------------------------
 
@@ -181,6 +205,12 @@ ALTER TABLE `buyer_requests`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `feedback`
+--
+ALTER TABLE `feedback`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `hire`
 --
 ALTER TABLE `hire`
@@ -212,7 +242,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `buyer_requests`
 --
 ALTER TABLE `buyer_requests`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+
+--
+-- AUTO_INCREMENT for table `feedback`
+--
+ALTER TABLE `feedback`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `hire`
@@ -224,13 +260,13 @@ ALTER TABLE `hire`
 -- AUTO_INCREMENT for table `rent`
 --
 ALTER TABLE `rent`
-  MODIFY `rent_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `rent_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `sell`
 --
 ALTER TABLE `sell`
-  MODIFY `sell_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `sell_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `user`
