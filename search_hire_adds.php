@@ -6,20 +6,7 @@
  include ("./inc/config.php");
 ?>
 
-<?php
-     
 
-      if (!isset($_SESSION['user_email'] )) {
-        header('Location:login.php');
-
-      }else if($_SESSION['role'] == 'admin'){
-          echo "Fobided!";
-          header('Location:sell_admin_panel.php');
-
-      }
-
-  
-?>
 
 
 

@@ -6,20 +6,7 @@
  include ("./inc/config.php");
 ?>
 
-<?php
-     
 
-      if (!isset($_SESSION['user_email'] )) {
-        header('Location:login.php');
-
-      }else if($_SESSION['role'] == 'admin'){
-          echo "Fobided!";
-          header('Location:sell_admin_panel.php');
-
-      }
-
-  
-?>
 
 
 
@@ -117,7 +104,7 @@ include  'header.php'
                               <div class="card  border-primary mb-3  " style="max-width:400px;  height:auto;  ">
 
                               <div class="card-header">  
-                              <h5 class="card-title text-info" style="font-weight: bold;"><?php echo $row["vehicle_Brand"]  ." ". $row["vehicle_model"] ." ".$row["vehicle_number"];?> </h5><h6 class="text-success">For Rent</h6>
+                              <h5 class="card-title text-info" style="font-weight: bold;"><?php echo $row["vehicle_brand"]  ." ". $row["vehicle_model"] ." ".$row["vehicle_number"];?> </h5><h6 class="text-success">For Rent</h6>
                               </div>
                                 <div class="row no-gutters">
                                   <div class="col-md-4">
