@@ -222,6 +222,7 @@ include  'header.php'
 
 
     </div>
+
   </div>
 </div>
 
@@ -296,7 +297,68 @@ include  'header.php'
 
 
 </div>
-    
+
+<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++- -->
+<!-- Add feedback section Starts -->
+<form method="post">   
+
+<textarea id="form10" class="md-textarea form-control" rows="3"  name ="description" Required></textarea>
+<input type="submit" class= "form-control btn btn-info" value="add Feedback" name="feedback">
+</form>
+<?php
+  if(isset($_POST['feedback'])){
+
+    $description = $_POST['description'];
+
+    $user = $_SESSION['user_email'];
+
+    $sql = "INSERT INTO `feedback` ( `user`, `add_id` ,`add_type`,`description`,`publisher`)
+    VALUES ( '$user','$add_id','$add_type','$description','$publisher_email')";
+     
+     
+     if (mysqli_query($conn, $sql)) { 
+          $msg ="Feedback added!";
+      } else {
+         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+          
+          
+      }
+  }
+
+?>
+
+
+<?php 
+
+$sql = "SELECT * FROM feedback  where add_id='$add_id'  AND  add_type = '$add_type' ";
+$result =$conn ->query($sql);
+
+if($result->num_rows > 0){
+while ($row =$result ->fetch_assoc())
+{
+?>
+
+
+<div class="alert alert-primary" role="alert">
+    <?php  echo $row['description'];?>
+</div> 
+
+
+
+<?php
+}
+}else{
+	echo "0 Result";
+}
+
+?>
+
+
+
+<!-- Add feedback section Ends -->
+<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++- -->
+
+
 
 </div>
 

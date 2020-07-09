@@ -28,6 +28,9 @@
   <!-- Navbar links -->
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="navbar-nav">
+    <li class="nav-item">
+        <a class="nav-link" href="index.php">Home</a>
+      </li>
       <li class="nav-item">
         <a class="nav-link" href="index.php">Sell</a>
       </li>
@@ -37,9 +40,28 @@
       <li class="nav-item">
         <a class="nav-link" href="hire.php">Hire</a>
       </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="search_sell_adds.php">Search Sell Adds</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="search_rent_adds.php">Search Rent Adds</a>
+      </li>
+
+
+      <li class="nav-item">
+        <a class="nav-link" href="search_hire_adds.php">Search Hire Adds</a>
+      </li>
+
+      <?php if(!empty($_SESSION)) {?>
+
+        
+
       <li class="nav-item">
         <a class="nav-link" href="publishAdd.php">Publish Add</a>
       </li>
+      
 
       <li class="nav-item">
         <a class="nav-link" href="published_Adds_List.php">Manage Adds</a>
@@ -52,6 +74,12 @@
       <li class="nav-item">
         <a class="nav-link" href="recieved_requests.php">Received Requests</a>
       </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="feedbacks.php"> Feedbacks</a>
+      </li>
+
+      <?php } ?>
     </ul>
 
 
