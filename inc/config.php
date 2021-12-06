@@ -2,7 +2,7 @@
 	$server ="localhost:3306";
 	$user_name = "root";
 	$password = "";
-	$database ="classified_db";
+	$database ="vehicle_hub";
 
 
 	$conn = new mysqli($server,$user_name,$password,$database);

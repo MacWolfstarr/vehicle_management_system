@@ -7,16 +7,16 @@
 <?php
     $href1="#";
     $href2="#";
-    if(!isset($_SESSION['role'])){
+    // if(!isset($_SESSION['role'])){
     $href1="login.php";
     $href2="register.php";
-    }
+    
 ?>
 
 
 
 
-<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+<nav class="mb-1 navbar navbar-expand-lg navbar-dark default-color">
   <!-- Brand -->
  
 
@@ -26,13 +26,15 @@
   </button>
 
   <!-- Navbar links -->
+  
+  
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="navbar-nav">
     <li class="nav-item">
         <a class="nav-link" href="index.php">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="index.php">Sell</a>
+        <a class="nav-link" href="sell.php">Sell</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="rent.php">Rent</a>
@@ -41,30 +43,29 @@
         <a class="nav-link" href="hire.php">Hire</a>
       </li>
 
-      <li class="nav-item">
-        <a class="nav-link" href="search_sell_adds.php">Search Sell Adds</a>
-      </li>
 
-      <li class="nav-item">
+
+  
+
+    <!--  <li class="nav-item">
         <a class="nav-link" href="search_rent_adds.php">Search Rent Adds</a>
-      </li>
+      </li> -->
 
 
-      <li class="nav-item">
+    <!--    <li class="nav-item">
         <a class="nav-link" href="search_hire_adds.php">Search Hire Adds</a>
-      </li>
+      </li>-->
 
-      <?php if(!empty($_SESSION)) {?>
 
-        
+      
 
-      <li class="nav-item">
-        <a class="nav-link" href="publishAdd.php">Publish Add</a>
+      <!-- <li class="nav-item">
+        <a class="nav-link" href="publishAdd.php">Publish Ad</a>
       </li>
       
 
       <li class="nav-item">
-        <a class="nav-link" href="published_Adds_List.php">Manage Adds</a>
+        <a class="nav-link" href="published_Adds_List.php">My Ads</a>
       </li>
 
      
@@ -77,9 +78,9 @@
 
       <li class="nav-item">
         <a class="nav-link" href="feedbacks.php"> Feedbacks</a>
-      </li>
+      </li> -->
 
-      <?php } ?>
+      
     </ul>
 
 
@@ -97,13 +98,11 @@
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo $href2;?>">Sign Up</a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link" href="logout.php">Sign Out</a>
-            </li>
+            </li> -->
 
-            <li class="nav-item">
-            <h5 class="text-light bg-secondary" style="padding:5px;"> <?php echo $_SESSION['user_email']?></h5>
-            </li>
+            
 
 
          

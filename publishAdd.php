@@ -28,7 +28,7 @@
 
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
 
-	if(isset($_POST['sumbit_sell']) ){  //Sell add start
+	if(isset($_POST['sumbit_sell']) ){  //Sell ad start
 
     $publisher =$_SESSION['user_email'];
     $vehicle_model =$_POST['vehicle_model'];
@@ -55,12 +55,29 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
         $dst1 ="vehicle_images/".$v3.$fnm;      
         move_uploaded_file($_FILES["img_path"]["tmp_name"],$dst);
 
+          
+        $v10 = rand(1111,9999);
+        $v20 = rand(1111,9999);
+        $v30 = $v10.$v20;
+        $fnm =$_FILES["img_path1"]["name"];  
+        $dst0 ="./vehicle_images/".$v30.$fnm;
+        $dst10 ="vehicle_images/".$v30.$fnm;      
+        move_uploaded_file($_FILES["img_path1"]["tmp_name"],$dst0);
+
+        $v11 = rand(1111,9999);
+        $v21 = rand(1111,9999);
+        $v31 = $v11.$v21;
+        $fnm =$_FILES["img_path2"]["name"];  
+        $dst111 ="./vehicle_images/".$v31.$fnm;
+        $dst11 ="vehicle_images/".$v31.$fnm;      
+        move_uploaded_file($_FILES["img_path2"]["tmp_name"],$dst111);
+
         //$sql = "INSERT INTO `sell` ( `publisher`, `vehicle_model` ,`vehicle_number`,`seller_name`,`phone_number`,`email`,`price`,`description`,`img_path`,`status` ,`vehicle_brand`,`engine_capacity`,`model_year`,`mileage`,`area`,`add_type`)
         //VALUES ( '$publisher','$vehicle_model','$vehicle_number','$seller_name','$phone_number',' $email',' $price','$description','$dst1','$status','$vehicle_brand','$engine_capacity','$model_year','$mileage','$area','$add_type')";
        
        
-       $sql = "INSERT INTO `sell` ( `publisher`, `vehicle_model` ,`vehicle_number`,`seller_name`,`phone_number`,`email`,`price`,`description`,`img_path`,`status` ,`vehicle_brand`,`engine_capacity`,`model_year`,`mileage`,`area`,`add_type`)
-      VALUES ( '$publisher','$vehicle_model','$vehicle_number','$seller_name','$phone_number',' $email',' $price','$description','$dst1','$status','$vehicle_brand','$engine_capacity','$model_year','$mileage','$area','$add_type')";
+       $sql = "INSERT INTO `sell` ( `publisher`, `vehicle_model` ,`vehicle_number`,`seller_name`,`phone_number`,`email`,`price`,`description`,`img_path`,`img_path1`,`img_path2`,`status` ,`vehicle_brand`,`engine_capacity`,`model_year`,`mileage`,`area`,`add_type`)
+      VALUES ( '$publisher','$vehicle_model','$vehicle_number','$seller_name','$phone_number',' $email',' $price','$description','$dst1','$dst10','$dst11','$status','$vehicle_brand','$engine_capacity','$model_year','$mileage','$area','$add_type')";
        
        
        if (mysqli_query($conn, $sql)) { 
@@ -73,7 +90,7 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
 
 
         
-    }else if(isset($_POST['sumbit_rent'])){    //rent add starts
+    }else if(isset($_POST['sumbit_rent'])){    //rent ad starts
 
       $publisher =$_SESSION['user_email'];
         $vehicle_Brand = $_POST['vehicle_Brand'];
@@ -96,9 +113,25 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
         $dst1 ="vehicle_images/".$v3.$fnm;      
         move_uploaded_file($_FILES["img_path"]["tmp_name"],$dst);
 
+          
+        $v10 = rand(1111,9999);
+        $v20 = rand(1111,9999);
+        $v30 = $v10.$v20;
+        $fnm =$_FILES["img_path1"]["name"];  
+        $dst0 ="./vehicle_images/".$v30.$fnm;
+        $dst10 ="vehicle_images/".$v30.$fnm;      
+        move_uploaded_file($_FILES["img_path1"]["tmp_name"],$dst0);
 
-        $sql = "INSERT INTO `rent` ( `publisher`, `vehicle_Brand` ,`vehicle_model`,`vehicle_number`,`owner_name`,`owner_phone_number`,`owner_email`,`price`,`description`,`area` ,`status`,`img_path`,`add_type`)
-        VALUES ( '$publisher','$vehicle_Brand','$vehicle_model','$vehicle_number','$owner_name',' $owner_phone_number',' $owner_email','$price','$description','$area','$status','$dst','$add_type')";
+        $v11 = rand(1111,9999);
+        $v21 = rand(1111,9999);
+        $v31 = $v11.$v21;
+        $fnm =$_FILES["img_path2"]["name"];  
+        $dst111 ="./vehicle_images/".$v31.$fnm;
+        $dst11 ="vehicle_images/".$v31.$fnm;      
+        move_uploaded_file($_FILES["img_path2"]["tmp_name"],$dst111);
+
+        $sql = "INSERT INTO `rent` ( `publisher`, `vehicle_Brand` ,`vehicle_model`,`vehicle_number`,`owner_name`,`owner_phone_number`,`owner_email`,`price`,`description`,`area` ,`status`,`img_path`,`img_path1`,`img_path2`,`add_type`)
+        VALUES ( '$publisher','$vehicle_Brand','$vehicle_model','$vehicle_number','$owner_name',' $owner_phone_number',' $owner_email','$price','$description','$area','$status','$dst1','$dst10','$dst11','$add_type')";
         
       
         if (mysqli_query($conn, $sql)) { 
@@ -133,10 +166,26 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
           $dst ="./vehicle_images/".$v3.$fnm;
           $dst1 ="vehicle_images/".$v3.$fnm;      
           move_uploaded_file($_FILES["img_path"]["tmp_name"],$dst);
+
+          
+          $v10 = rand(1111,9999);
+          $v20 = rand(1111,9999);
+          $v30 = $v10.$v20;
+          $fnm =$_FILES["img_path1"]["name"];  
+          $dst0 ="./vehicle_images/".$v30.$fnm;
+          $dst10 ="vehicle_images/".$v30.$fnm;      
+          move_uploaded_file($_FILES["img_path1"]["tmp_name"],$dst0);
   
+          $v11 = rand(1111,9999);
+          $v21 = rand(1111,9999);
+          $v31 = $v11.$v21;
+          $fnm =$_FILES["img_path2"]["name"];  
+          $dst111 ="./vehicle_images/".$v31.$fnm;
+          $dst11 ="vehicle_images/".$v31.$fnm;      
+          move_uploaded_file($_FILES["img_path2"]["tmp_name"],$dst111);
   
-          $sql = "INSERT INTO `hire` ( `publisher`, `vehicle_Brand` ,`vehicle_model`,`vehicle_number`,`price`,`owner_name`,`owner_phone_number`,`owner_email`,`driver_name`,`driver_phone_number` ,`description`,`status`,`area`,`img_path`,`add_type`)
-          VALUES ( '$publisher','$vehicle_Brand','$vehicle_model','$vehicle_number','$price',' $owner_name',' $owner_phone_number','$owner_email','$driver_name','$driver_phone_number','$description','$status','$area','$dst','$add_type')";
+          $sql = "INSERT INTO `hire` ( `publisher`, `vehicle_Brand` ,`vehicle_model`,`vehicle_number`,`price`,`owner_name`,`owner_phone_number`,`owner_email`,`driver_name`,`driver_phone_number` ,`description`,`status`,`area`,`img_path`,`img_path1`,`img_path2`,`add_type`)
+          VALUES ( '$publisher','$vehicle_Brand','$vehicle_model','$vehicle_number','$price',' $owner_name',' $owner_phone_number','$owner_email','$driver_name','$driver_phone_number','$description','$status','$area','$dst1','$dst10','$dst11','$add_type')";
           
         
           if (mysqli_query($conn, $sql)) { 
@@ -182,7 +231,7 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
 
 
 <?php
-include  'header.php'
+include  'header1.php'
 ?>
 
 
@@ -326,13 +375,29 @@ include  'header.php'
       </div>
     </div>
 
+    <div class="form-group row  ">
+      <label class="col-sm-2 col-form-label">Vehicle Image 1</label>
+      <div class="col-sm-4">
+      <input type="file" name ="img_path1" class="form-control" Required>
+      </div>
+    </div>
+
+
+    <div class="form-group row  ">
+      <label class="col-sm-2 col-form-label">Vehicle Image 2</label>
+      <div class="col-sm-4">
+      <input type="file" name ="img_path2" class="form-control" Required>
+      </div>
+    </div>
+
+
 
   
 
 
     <div class="form-group row">
       <div class="col-sm-10">
-        <input type="submit" name="sumbit_sell" value="Publish Add" class="btn btn-primary">
+        <input type="submit" name="sumbit_sell" value="Send Request To Admin" class="btn btn-primary">
       </div>
     </div>
 
@@ -437,9 +502,26 @@ include  'header.php'
     </div>
 
 
+    <div class="form-group row  ">
+      <label class="col-sm-2 col-form-label">Vehicle Image 1</label>
+      <div class="col-sm-4">
+      <input type="file" name ="img_path1" class="form-control" Required>
+      </div>
+    </div>
+
+
+    <div class="form-group row  ">
+      <label class="col-sm-2 col-form-label">Vehicle Image 2</label>
+      <div class="col-sm-4">
+      <input type="file" name ="img_path2" class="form-control" Required>
+      </div>
+    </div>
+
+
+
     <div class="form-group row">
       <div class="col-sm-10">
-        <input type="submit" name="sumbit_rent" value="Publish Add" class="btn btn-primary" Required>
+        <input type="submit" name="sumbit_rent" value="Send Request To Admin" class="btn btn-primary" Required>
       </div>
     </div>
 
@@ -563,9 +645,26 @@ include  'header.php'
       </div>
     </div>
 
+    <div class="form-group row  ">
+      <label class="col-sm-2 col-form-label">Vehicle Image 1</label>
+      <div class="col-sm-4">
+      <input type="file" name ="img_path1" class="form-control" Required>
+      </div>
+    </div>
+
+
+    <div class="form-group row  ">
+      <label class="col-sm-2 col-form-label">Vehicle Image 2</label>
+      <div class="col-sm-4">
+      <input type="file" name ="img_path2" class="form-control" Required>
+      </div>
+    </div>
+
+
+
     <div class="form-group row">
       <div class="col-sm-10">
-        <input type="submit" name="sumbit_hire" value="Publish Add" class="btn btn-primary" >
+        <input type="submit" name="sumbit_hire" value="Send Request To Admin" class="btn btn-primary" >
       </div>
     </div>
 

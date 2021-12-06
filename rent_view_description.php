@@ -1,4 +1,4 @@
-
+<!--database connecting..... -->
 <?php session_start();?>
 <?php 
  include ("./inc/config.php");
@@ -13,7 +13,7 @@ $rent_id = $_GET['rent_id'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Hire</title>
 
     
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -21,7 +21,12 @@ $rent_id = $_GET['rent_id'];
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="js/bootstrap.min.js" type="text/javascript"></script>
+<!--############################################ star rating #############################################-->
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/star_rating">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--############################################ star rating #############################################-->
 
 </head>
 <body>
@@ -46,7 +51,7 @@ include  'header.php'
 
 
 <?php
-       // $sql = "SELECT * FROM sell where status='approved'";
+    
         $sql = "SELECT * FROM rent where rent_id=$rent_id ";
 
         $result =$conn ->query($sql);
@@ -61,13 +66,38 @@ include  'header.php'
 
 <div class="card-group ">
   <div class="card border-primary">
-    <img class="card-img-top" src="./<?php echo $row["img_path"];?>" alt="Card image cap"style="width:700px; height:400;   margin-left: auto; margin-right: auto; ">
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="./<?php echo $row['img_path'] ?>" alt="First slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="./<?php echo $row['img_path1'] ?>" alt="Second slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="./<?php echo $row['img_path2'] ?>" alt="Third slide">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
     <div class="card-body">
 
 
 
     <h2 class="card-title " style="font-weight:bold;" ><?php echo $row["vehicle_Brand"]  ." ". $row["vehicle_model"] ." ".$row["vehicle_number"]." ";?></h2>
-      <h2> Price : <?php echo $row["price"] ?> </h2>
+      <h2> Price : <?php echo $row["price"] ?> Per KM </h2>
    
 
       <table class="table table-hover table-dark" style="width:50%; float:left;">
@@ -122,34 +152,28 @@ include  'header.php'
     </table>
 
 
-
-     </div>
-
-
-
-
-   
-	
-	
-    <div class="card-footer">
-      <small class="text-muted">
-      <?php if(!empty($_SESSION)){ ?>
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter"> Request </button>
-      <?php } ?>
-      </small>
     </div>
-	
-  </div>
-</div>
+      </div>
+      </div>
 
+     <div class="card-bottom">
+      <!-- <small class="text-muted"> -->
+      
+      <label class="col-sm-20 col-form-label">User Feedbacks:-</label>
+      <div class="col-sm-20">
+      </div>
+     
 
+      
 
-<?php
+    
+    <?php
      $add_id = $row['rent_id'];
      $publisher_email =$row['publisher'];  
-     $buyer_email   = $_SESSION['user_email'];;
+    //  $buyer_email   = $_SESSION['user_email'];
      $add_type = $row['add_type'];
-
+    
+      
 ?>
 
 
@@ -252,43 +276,6 @@ include  'header.php'
 
 
 
-<?php
-
-
-
-
-
-  if(isset($_POST['rent_request_btn']) ){ 
-    $buyer_name = $_POST['buyer_name'];
-    $buyer_contact = $_POST['buyer_contact'];
-    $date = $_POST['date'];
-    $buyer_message = $_POST['buyer_message'];
-    $pending = "pending";
-
-    $sql = "INSERT INTO `buyer_requests` ( `add_id`, `buyer_name` ,`buyer_contact`,`buyer_email`,`publisher_email`,`date`,`buyer_message`,`add_type`,`status`)
-    VALUES ( '$add_id','$buyer_name','$buyer_contact','$buyer_email','$publisher_email',' $date',' $buyer_message','$add_type','$pending')";
-    
-    if (mysqli_query($conn, $sql)) { 
-        $msg ="Request sent successfully!";
-    } else {
-
-          echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-        
-        
-    }
-
-
-    
-    }
-
-
-
-
-
-
-
-
-  ?>
 
 
 
@@ -298,34 +285,7 @@ include  'header.php'
 
 </div>
 
-<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++- -->
-<!-- Add feedback section Starts -->
-<form method="post">   
 
-<textarea id="form10" class="md-textarea form-control" rows="3"  name ="description" Required></textarea>
-<input type="submit" class= "form-control btn btn-info" value="add Feedback" name="feedback">
-</form>
-<?php
-  if(isset($_POST['feedback'])){
-
-    $description = $_POST['description'];
-
-    $user = $_SESSION['user_email'];
-
-    $sql = "INSERT INTO `feedback` ( `user`, `add_id` ,`add_type`,`description`,`publisher`)
-    VALUES ( '$user','$add_id','$add_type','$description','$publisher_email')";
-     
-     
-     if (mysqli_query($conn, $sql)) { 
-          $msg ="Feedback added!";
-      } else {
-         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-          
-          
-      }
-  }
-
-?>
 
 
 <?php 
@@ -338,9 +298,22 @@ while ($row =$result ->fetch_assoc())
 {
 ?>
 
-
 <div class="alert alert-primary" role="alert">
-    <?php  echo $row['description'];?>
+    <?php  
+     echo $row['rate'];
+    echo "&nbsp;"; 
+             echo  $row['user']; 
+              echo "&nbsp;:  "; 
+            echo $row['description'];
+            
+           
+
+           
+          
+           
+       
+           
+    ?>
 </div> 
 
 
@@ -348,7 +321,7 @@ while ($row =$result ->fetch_assoc())
 <?php
 }
 }else{
-	echo "0 Result";
+	echo "0 Feedbacks";
 }
 
 ?>

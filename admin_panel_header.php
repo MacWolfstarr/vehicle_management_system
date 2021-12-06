@@ -18,16 +18,27 @@
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="sell_admin_panel.php">Sell ads</a>
+        <a class="nav-link" href="sell_admin_panel.php">Sell Advertisements</a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="rent_admin_panel.php">Rent adds</a>
+        <a class="nav-link" href="rent_admin_panel.php">Rent Advertisements</a>
       </li>
      
 
       <li class="nav-item">
-        <a class="nav-link" href="hire_admin_panel.php">Hire adds</a>
+        <a class="nav-link" href="hire_admin_panel.php">Hire Advertisements</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="admin_edit_ad.php">Edit Published Advertisements</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="admin_register.php">Add New Admin</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="viewreports.php">View Reports</a>
       </li>
 
     
@@ -41,14 +52,14 @@
 
     <ul class="navbar-nav ml-auto">
             
-            <!--  <h5 class="text-danger">Welcome <?php echo $_SESSION['user_id']?></h5> -->
+             <!-- <h5 class="text-danger">Welcome <?php echo $_SESSION['user_id']?></h5> -->
          
             <li class="nav-item">
                 <a class="nav-link" href="logout.php">Sign Out</a>
             </li>
 
             <li class="nav-item">
-            <h5 class="text-light bg-danger" style="padding:5px;"> <?php echo $_SESSION['user_email']?></h5>
+            <h5 class="text-light bg-danger" style="padding:5px;"> <?php echo $_SESSION['first_name']?></h5>
             </li>
 
 

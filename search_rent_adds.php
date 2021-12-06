@@ -5,6 +5,10 @@
 <?php 
  include ("./inc/config.php");
 ?>
+<?php 
+$brand = $_GET['brand'];
+$model = $_GET['model'];
+?>
 
 
 
@@ -42,6 +46,7 @@
 include  'header.php'
 ?>
 
+          
 
 
 
@@ -55,7 +60,17 @@ include  'header.php'
  		<!--Publish add section starts -->
 	<div  class="tabPanel">
 
+  <?php
+  if(isset($_POST['search']))
+  {
+    $brand=$_POST['search_Brand'];
+    $model=$_POST['search_Model'];
+    header("location:search_rent_adds.php?brand=$brand&model=$model");
+  }
+  ?>
+
 <form method="post">
+
 
   <div class="input-group">
 
@@ -72,21 +87,21 @@ include  'header.php'
 
       <?php
 
-        if(isset($_POST['search'])){
+
 
                
-                $search_Brand = $_POST['search_Brand'];
-                $search_Model = $_POST['search_Model'];
+                $search_Brand = $brand;
+                $search_Model =$model;
 
               
 
                   $sql = "SELECT * FROM rent  where  ";
                   
                   if($search_Brand !="") {
-                    $sql .= "  vehicle_Brand   Like '{$search_Brand}%'";
+                    $sql .= "  vehicle_brand  Like '{$search_Brand}%'";
                   }
-                  if($search_Model !="") {
-                    $sql .= "  vehicle_model    Like '{$search_Model}%'";
+                  else if($search_Model !="") {
+                    $sql .= "  vehicle_model  Like '{$search_Model}%'";
                   }
 
 
@@ -99,11 +114,9 @@ include  'header.php'
 
      ?>
 
-
-                              <div class="card  border-primary mb-3  " style="max-width:400px;  height:auto;  ">
-
-                              <div class="card-header">  
-                              <h5 class="card-title text-info" style="font-weight: bold;"><?php echo $row["vehicle_Brand"]  ." ". $row["vehicle_model"] ." ".$row["vehicle_number"];?> </h5><h6 class="text-success">For Rent</h6>
+<div class="card mb-3 border-primary " style="width: 480px; height: 300px;   float:left; margin-left:20px; margin-right:50px; margin-top:40px; background:#bfdfc2;  border-style: solid;  ">
+<div class="card-header" style="background:#ffffff;">
+                              <h5 class="p-3 mb-2 bg-primary text-white" style="font-weight: bold;"><?php echo $row["vehicle_Brand"]  ." ". $row["vehicle_model"] ." ".$row["vehicle_number"];?> </h5><h6 class="border border-danger" style="text-align: center;">For Rent</h6>
                               </div>
                                 <div class="row no-gutters">
                                   <div class="col-md-4">
@@ -121,9 +134,10 @@ include  'header.php'
                                 </div>
 
                                 <div class="card-footer bg-transparent border-primary">    
-                                <a href="rent_view_description.php?rent_id=<?php echo $row['rent_id'];?>"><input type="submit" name="sumbit_sell" value="View Description" class="btn btn-primary"></a>
+                                <a href="rent_view_description.php?rent_id=<?php echo $row['rent_id'];?>"><input type="submit" name="sumbit_rent" value="View Description" class="btn btn-primary"></a>
                                 </div>
                               </div>
+
 
 
 
@@ -140,7 +154,7 @@ include  'header.php'
 
 
 
-        }
+       
       
       
       

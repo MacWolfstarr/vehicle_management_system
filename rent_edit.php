@@ -16,10 +16,10 @@
       if (!isset($_SESSION['user_email'] )) {
         header('Location:login.php');
 
-      }else if($_SESSION['role'] == 'admin'){
-          echo "Fobided!";
-          header('Location:sell_admin_panel.php');
-      }
+      }//else if($_SESSION['role'] == 'admin'){
+         // echo "Fobided!";
+         // header('Location:sell_admin_panel.php');
+     // }
 
     
 
@@ -106,7 +106,7 @@
 
 
 <?php
-include  'header.php'
+include  'header1.php'
 ?>
 
 

@@ -115,7 +115,7 @@ if(isset($_POST['delete_sell_add']) ){
 
 
 <?php
-include  'header.php'
+include  'header1.php'
 ?>
 
 
@@ -163,6 +163,7 @@ include  'header.php'
       <th scope="col">Vehicle Number</th>
       <th scope="col">Edit</th>
       <th scope="col">Delete</th>
+      <th scope="col">View</th>
     
    
     </tr>
@@ -198,12 +199,12 @@ include  'header.php'
             <input type="submit" class="btn btn-danger" value="Delete" name="delete_sell_add">
             </form>
      </td>
-     
+     <td>
+     <a href="sell_view_description.php?sell_id=<?php echo $row['sell_id'];?>"> <input type="submit" name="sumbit_sell" value="View" class="btn btn-warning"></a>
+     </td>
     
       
-    </tr>
-
-
+ 
 
 
 
@@ -245,6 +246,7 @@ include  'header.php'
       <th scope="col">Vehicle Number</th>
       <th scope="col">Edit</th>
       <th scope="col">Delete</th>
+      <th scope="col">View</th>
     
    
     </tr>
@@ -281,6 +283,9 @@ include  'header.php'
             </form>
      </td>
      
+     <td>
+     <a href="user_rent_view.php?rent_id=<?php echo $row['rent_id'];?>"> <input type="submit" name="sumbit_rent" value="View" class="btn btn-warning"></a>
+     </td>
     
       
     </tr>
@@ -324,7 +329,7 @@ include  'header.php'
       <th scope="col">Vehicle Number</th>
       <th scope="col">Edit</th>
       <th scope="col">Delete</th>
-    
+      <th scope="col">View</th>
    
     </tr>
   </thead>
@@ -360,6 +365,9 @@ include  'header.php'
             </form>
      </td>
      
+     <td>
+     <a href="user_hire_view.php?hire_id=<?php echo $row['hire_id'];?>"> <input type="submit" name="sumbit_hire" value="View" class="btn btn-warning"></a>
+     </td>
     
       
     </tr>
